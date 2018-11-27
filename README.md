@@ -1,29 +1,32 @@
 # vue-project
 
-## Project setup
-```
-yarn install
-```
+## 包含内容
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+* **vue** 框架 @2.5.17
+  * **router** 路由 @3.0.2
+  * **axios** ajax请求 @0.18.0
+* **element-ui** 组件库 @2.4.11
+* **vue-echarts** 图表 @3.1.3
+* **leaflet** 地图 @1.2.0
+  * esri-leaflet @2.1.4
+* **stylus** 预编译样式 @0.54.5
+  * css-loader @1.0.1
+  * style-loader @0.23.1
+  * stylus-loader @3.0.2
+* **pug** 模板语言 @2.0.3
+  * pug-plain-loader @1.0.0
+* eslint 代码检查 @5.9.0
+* webpack 打包工具 @4.26.1
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## 需求
 
-### Run your tests
-```
-yarn run test
-```
+* nodejs版本 - 10.13.0
+* vue-cli版本 - 3.1.3
+* yarn版本 - 1.9.4
 
-### Lints and fixes files
-```
-yarn run lint
-```
+## 安装与使用
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* ```yarn install``` 安装依赖
+* ```yarn run serve``` 运行项目
+* ```yarn run build``` 编译静态工程
+* ```yarn run lint``` 代码检查
