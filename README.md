@@ -6,7 +6,8 @@
   * **router** 路由 @3.0.2
   * **axios** ajax请求 @0.18.0
 * **element-ui** 组件库 @2.4.11
-* **vue-echarts** 图表 @3.1.3
+* echarts 图表 @4.2.0-rc.2
+  * **v-charts** @1.19.0
 * **leaflet** 地图 @1.2.0
   * esri-leaflet @2.1.4
 * **stylus** 预编译样式 @0.54.5
