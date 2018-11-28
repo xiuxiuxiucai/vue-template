@@ -8,7 +8,8 @@
           div 该项目使用vue作为框架，配合stylus以及pug方便快速开发。并集成了router，axios，element-ui，v-charts，leaflet等常用组件。
           b 注意事项
           div router定义在src/router.js中
-          div axios定义在src/api.js中
+          div axios定义在src/main.js中，绑定于$http属性上
+          div 项目包含了vue-cli-service和eslint的配置文件
         el-row.element-show
           el-button 默认按钮
           el-button(type="primary", plain) 主要按钮
