@@ -52,6 +52,9 @@ export default {
         }
     },
     mounted() {
+        if(this.$route.params.missionName){
+            this.staffName = '当前员工：' + this.$route.params.missionName
+        }
         this.fetch()
     }
 }

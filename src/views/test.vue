@@ -1,64 +1,92 @@
 <style lang="stylus" scoped>
-.historyChart
+.header
+    width 60%
+    display flex
+    flex-flow row nowrap
     align-items center
+    justify-content space-between
+    padding-bottom 16px
+    border-bottom 2px solid #888
+    .title
+        font-size 24px
+        font-weight bolder
+    .el-table
+        padding-top 32px
+        width 55%
 </style>
 
 <template lang="pug">
-.historyChart
-    #myChart(:style="{width: '65%', height: '500px', weight: '1400px'}")
-    #percentage(:style="{width: '65%', height: '500px', weight: '1400px'}")
+.missionCenter
+    .header
+        span.title 历史日志
+    el-table(:data='tableData', :span-method='objectSpanMethod', max-height='600', style='width: 60%')
+        el-table-column(prop='asof', sortable='', align="center", label='日期')
+        el-table-column(prop='task', sortable='', align="center", label='进行事务')
+        el-table-column(prop='priority', sortable='', align="center", label='优先级', 
+            :filters="[{text: 'A', value: 'A'}, {text: 'B', value: 'B'}, {text: 'C', value: 'C'}, {text: 'D', value: 'D'}]", :filter-method='filterHandler')
+        el-table-column(prop='expend', sortable='', align="center", label='消耗时间')
+        el-table-column(label='', align="center", width='250px')
+            template(slot-scope='scope')
+                el-button(size='mini', type='primary', @click="$router.push({name:'MissionItem', params:{missionID: scope.row.id, missionName: scope.row.priority}})") 详情
+                el-button(size='mini', type='danger', @click='handleDelete(scope.$index, scope.row)') 删除
+            template.selectDate(slot-scope='scope', slot="header")
+                el-date-picker(v-model='value1', type='date', placeholder='选择日期', size='small')
 </template>
 
 <script>
-let echarts = require('echarts/lib/echarts')
-require('echarts/lib/chart/bar')
-require('echarts/lib/component/tooltip')
-require('echarts/lib/component/title')
 export default {
-    name: 'test',
+    name: 'templete',
     data: () => ({
+        value1: '',
+        tableData: [{
+            asof: '2019-05-08',
+            task: '毕业设计',
+            priority: 'A',
+            expend: '4小时'
+        }, {
+            asof: '2019-05-08',
+            task: '毕业论文',
+            priority: 'B',
+            expend: '3小时'
+        }, {
+            asof: '2019-05-08',
+            task: '看书',
+            priority: 'C',
+            expend: '2小时'
+        }, {
+            asof: '2019-05-08',
+            task: '洗衣服',
+            priority: 'D',
+            expend: '1小时'
+        }, {
+            asof: '2019-05-08',
+            task: '晒被子',
+            priority: 'D',
+            expend: '0.5小时'
+        }]
     }),
     methods: {
-        drawLine() {
-            let myChart = echarts.init(document.getElementById('myChart'))
-            let percentage = echarts.init(document.getElementById('percentage'))
-            myChart.setOption({
-                title: { text: '历史事务表' },
-                tooltip: {},
-                xAxis: {
-                    data: ["2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06"]
-                },
-                yAxis: {},
-                series: [{
-                    name: '任务数',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                },{
-                    name: '完成数',
-                    type: 'bar',
-                    data: [4, 10, 32, 5, 2, 2]
-                }]
-            })
-            percentage.setOption({
-                series : [
-                    {
-                        name: '访问来源',
-                        type: 'pie',
-                        radius: '55%',
-                        data:[
-                            {value:235, name:'视频广告'},
-                            {value:274, name:'联盟广告'},
-                            {value:310, name:'邮件营销'},
-                            {value:335, name:'直接访问'},
-                            {value:400, name:'搜索引擎'}
-                        ]
-                    }
-                ]
-            })
+        filterHandler(value, row, column) {
+            const property = column['property']
+            return row[property] === value;
+        },
+        objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+        if (columnIndex === 0) {
+          if (rowIndex % 2 === 0) {
+            return {
+              rowspan: 2,
+              colspan: 1
+            };
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            };
+          }
         }
+      }
     },
-    mounted() {
-        this.drawLine();
+    mounted(){
     }
 }
 </script>

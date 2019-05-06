@@ -1,17 +1,19 @@
 <style lang="stylus" scoped>
 .sign
-    background-color #fff
+    margin-top: 25px
+    width 100%
+    display flex
+    flex-direction column
+    align-items center
     .el-button
-        width 90%
+        width 40%
 </style>
 
 <template lang="pug">
 .sign
-    el-form(ref='signForm' :rules="formRules" :model='signForm', label-width='80px')
-        el-form-item(label='用户名' prop="username")
-            el-input(v-model='signForm.username')
-        el-form-item(label='密码' prop="password")
-            el-input(v-model='signForm.password')
+    el-form(ref='signForm' :rules="formRules" :model='signForm', label-width='70px')
+        el-form-item(label='账号' prop="account")
+            el-input(v-model='signForm.account')
         el-form-item(label='姓名' prop="name")
             el-input(v-model='signForm.name')
         el-form-item(label='性别' prop="sex")
@@ -21,7 +23,8 @@
             el-input(v-model='signForm.phone')
         el-form-item(label='邮箱' prop="email")
             el-input(v-model='signForm.email')
-        el-button(type="primary" @click="onSign") 注册
+        el-button(type="primary" @click="onSign") 确认
+        el-button(type="primary" @click="cancelSubmit") 取消
 </template>
 
 <script>
@@ -29,16 +32,14 @@ export default {
     name: 'Sign',
     data: () => ({
         signForm: {
-            username: '',
-            password: '',
+            account: '',
             sex: '',
             name: '',
             phone: '',
             email: ''
         },
         formRules: {
-            username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-            password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+            account: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
             name: [{ required: true, message: '请输入姓名', trigger: 'blur' }]
         },
     }),
@@ -55,6 +56,11 @@ export default {
                     })
                     this.$emit('submit-sign', true)
                 }
+            })
+        },
+        cancelSubmit() {
+            this.$confirm('确认取消').then(() => {
+                this.$router.back()
             })
         }
     }

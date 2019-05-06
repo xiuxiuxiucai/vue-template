@@ -1,4 +1,6 @@
 <style lang="stylus" scoped>
+.block
+    width 100%
 .historyChart
     display flex
     flex-direction column
@@ -6,8 +8,12 @@
 </style>
 
 <template lang="pug">
-.historyChart
-    #percentage(:style="{width: '100%', height: '500px'}")
+.div
+    .block
+        span.demonstration 日期：    
+        el-date-picker(v-model='value1', type='daterange', size='small', range-separator='至', start-placeholder='开始日期', end-placeholder='结束日期')
+    .historyChart
+        #percentage(:style="{width: '100%', height: '500px'}")
 </template>
 
 <script>
@@ -23,18 +29,35 @@ export default {
         drawLine() {
             let percentage = echarts.init(document.getElementById('percentage'))
             percentage.setOption({
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['进行中','未开始','已取消','已完成','已暂停']
+                },
                 series : [
                     {
-                        name: '访问来源',
+                        name: '事务状态',
                         type: 'pie',
                         radius: '55%',
+                        center: ['50%', '60%'],
                         data:[
-                            {value:235, name:'进行中'},
-                            {value:274, name:'未开始'},
-                            {value:310, name:'已延期'},
-                            {value:335, name:'已完成'},
-                            {value:400, name:'已暂停'}
-                        ]
+                            {value:3, name:'进行中'},
+                            {value:10, name:'未开始'},
+                            {value:11, name:'已取消'},
+                            {value:63, name:'已完成'},
+                            {value:5, name:'已暂停'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
                     }
                 ]
             })

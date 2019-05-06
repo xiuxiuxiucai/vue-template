@@ -20,27 +20,25 @@
     .header
         span.title {{compMap[compName]}}
         el-radio-group(v-model="compName")
-            el-radio-button(label="MissionHistoryChart") 历史事务
-            el-radio-button(label="MissionTimeChart") 每日工时
-            el-radio-button(label="MissionPercentageChart") 百分比图
+            el-radio-button(label="AccountEditing") 账号编辑
+            el-radio-button(label="passwordSetting") 密码修改
     .content
         keep-alive
             components(:is="compName")
 </template>
 
 <script>
-import missionChart from '../components/missionChart'
+import personalSettings from '../components/personalSettings'
 export default {
-    name: 'missionChart',
+    name: 'personalSettings',
     data: () => ({
-        compName: 'MissionHistoryChart',
+        compName: 'AccountEditing',
         compMap: {
-            MissionHistoryChart: '历史事务',
-            MissionTimeChart: '每日工时',
-            MissionPercentageChart: '百分比图'
+            AccountEditing: '账号编辑',
+            passwordSetting: '密码修改'
         }
     }),
-    components: { ...missionChart },
+    components: { ...personalSettings },
     methods: {
     },
     mounted() {

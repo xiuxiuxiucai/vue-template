@@ -64,7 +64,7 @@ export default {
     data: () => ({
         todayMissionInfo: [
             {
-                title: '所有任务',
+                title: '所有事务',
                 value: 1
             },
             {

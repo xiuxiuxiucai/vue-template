@@ -31,7 +31,7 @@
                 el-col(:span='11')
                     el-form-item(prop='beginTime2')
                         el-time-picker(placeholder='选择时间', v-model='ruleForm.beginTime2', style='width: 100%;')
-            el-form-item.endTime(label='截至时间')
+            el-form-item.endTime(label='截止时间')
                 el-col(:span='11')
                     el-form-item(prop='endTime1')
                         el-date-picker(type='date', placeholder='选择日期', v-model='ruleForm.endTime1', style='width: 100%;')
@@ -55,8 +55,8 @@
             el-form-item(label='事务简介', prop='transaction', style='height: 100%;')
                 el-input(type='textarea', v-model='ruleForm.transaction' :autosize="{ minRows: 2, maxRows: 4 }")
             el-form-item.confirmButton
-                el-button(type='primary', @click="submitForm('ruleForm')") 编辑任务
-                el-button(@click="resetForm('ruleForm')") 删除任务
+                el-button(type='primary', @click="submitForm('ruleForm')") 编辑事务
+                el-button(@click="resetForm('ruleForm')") 删除事务
 </template>
 
 <script>

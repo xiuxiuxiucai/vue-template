@@ -35,7 +35,7 @@
                 el-input(v-model="loginData.username" placeholder="在此处输入用户名")
             el-form-item(label="" prop="password")
                 el-input(v-model="loginData.password" placeholder="在此处输入密码")
-            el-button(type="info" @click="onSubmit('loginForm')") 登入系统
+            el-button(type="primary" @click="onSubmit('loginForm')") 登入系统
             el-button(@click="signVisable = !signVisable") 注册用户
     el-dialog(title="注册" :visible.sync="signVisable")
         sign(@submit-sign="signVisable = false")
@@ -74,9 +74,6 @@ export default {
                 }
             })
             
-        },
-        onRegist() {
-            console.log('跳转至注册页面')
         }
     }
 }
