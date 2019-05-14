@@ -13,7 +13,7 @@ export default {
         type: 'info'
     }],
     servers: {
-        test: 'https://easy-mock.com/mock/5cb9e36fb6aa6813fddead48/transaction-management'
-        
+        test: 'https://easy-mock.com/mock/5cb9e36fb6aa6813fddead48/transaction-management',
+        local: 'http://localhost:9090/api'
     }
 }

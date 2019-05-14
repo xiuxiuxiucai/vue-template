@@ -46,15 +46,16 @@ el-container
             el-menu-item(index="/index/TodayMission") 今日日程
             el-menu-item(index="/index/MissionAlter") 新建事务
             //- el-menu-item(index="/index/MissionCenter") 历史日志
-            el-menu-item(index="/index/test") 历史日志
             el-submenu(index="2")
                 template(slot="title") 统计图表
                 el-menu-item(index="/index/statisticsItem") 统计
                 el-menu-item(index="/index/MissionChart") 图表
-            //- el-menu-item(index="/index/MissionItem") 事务详情
-            //- el-menu-item(index="/index/AccountManage") 账号管理
-            //- el-menu-item(index="/index/StaffManage") 员工管理
+            el-menu-item(index="/index/test") 历史日志
+            el-menu-item(index="/index/StaffManage") 员工管理
+            el-menu-item(index="/index/AccountManage") 账号管理
+            
             //- el-menu-item(index="/index/StaffMission") 员工事务
+            //- el-menu-item(index="/index/MissionItem") 事务详情
     el-main
         router-view.main-container
     el-dropdown.login(@command='userAction')

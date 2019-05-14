@@ -38,7 +38,7 @@
                     .grid-content.bg-purple {{missionItem.value}}
     el-card.box-card
         .clearfix(slot='header')
-            span 平均每日时间
+            span 平均时间
             el-select(v-model='otherDateType', @change='otherChange' placeholder='请选择', size="mini")
                 el-option(v-for='item in options', :key='item.value', :label='item.label', :value='item.value')
             .datePicker
@@ -82,15 +82,23 @@ export default {
         ],
         todayMissionOther: [
             {
-                title: '平均工时',
+                title: '每日工作工时',
                 value: 1
             },
             {
-                title: '超时时长',
+                title: '事务平均工时',
                 value: 1
             },
             {
-                title: '延期时长',
+                title: '事务预计用时',
+                value: 1
+            },
+            {
+                title: '事务超时时长',
+                value: 1
+            },
+            {
+                title: '事务延期时长',
                 value: 1
             }
         ],

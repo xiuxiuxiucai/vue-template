@@ -24,8 +24,7 @@ require('echarts/lib/component/title')
 export default {
     name: 'test',
     data: () => ({
-        value1: '',
-        value2: ''
+        value1: ''
     }),
     methods: {
         drawLine() {
@@ -39,13 +38,13 @@ export default {
                     name: '事务数'
                 },
                 series: [{
-                    name: '事务数',
+                    name: '计划事务数',
                     type: 'bar',
                     data: [5, 6, 9, 8, 6, 2, 3]
                 },{
-                    name: '完成数',
+                    name: '实际完成数',
                     type: 'bar',
-                    data: [4, 6, 7, 8, 5, 2, 3]
+                    data: [4, 7, 7, 8, 5, 2, 3]
                 }]
             })
         }

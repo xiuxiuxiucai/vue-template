@@ -65,87 +65,91 @@ export default {
         todayMissionInfo: [
             {
                 title: '进行中',
-                value: 1
+                value: '20%'
             },
             {
                 title: '未开始',
-                value: 1
+                value: '70%'
             },
             {
                 title: '已超时',
-                value: 1
+                value: '10%'
             },
             {
                 title: '已延期',
-                value: 1
+                value: '0%'
             },
             {
                 title: '已完成',
-                value: 1
+                value: '10%'
             },
             {
                 title: '已暂停',
-                value: 1
+                value: '0%'
             },
             {
                 title: '已取消',
-                value: 1
+                value: '0%'
             }
         ],
         totalMissionInfo: [
             {
                 title: '进行中',
-                value: 1
+                value: '3%'
+            },
+            {
+                title: '未开始',
+                value: '6%'
             },
             {
                 title: '已超时',
-                value: 1
+                value: '2%'
             },
             {
                 title: '已延期',
-                value: 1
+                value: '1%'
             },
             {
                 title: '已完成',
-                value: 1
+                value: '90%'
             },
             {
                 title: '已暂停',
-                value: 1
+                value: '1%'
             },
             {
                 title: '已取消',
-                value: 1
+                value: '2%'
             }
         ],
         todayMissionOther: [
             {
                 title: '总工时',
-                value: 1
+                value: '33%'
             },
             {
                 title: '已用工时',
-                value: 1
+                value: '90%'
             },
             {
                 title: '剩余工时',
-                value: 1
+                value: '10%'
             },
             {
                 title: '耗时占比',
-                value: 1
+                value: '90%'
             },
             {
                 title: '超时占比',
-                value: 1
+                value: '10%'
             },
             {
                 title: '延期占比',
-                value: 1
+                value: '4%'
             },
             {
                 title: '取消占比',
-                value: 1
+                value: '2%'
             }
 
         ],
@@ -176,6 +180,7 @@ export default {
     }),
     methods: {
         missionChange() {
+            this.missionPickerFormat = ''
             this.missionPickerType = this.missionDateType
             switch(this.missionDateType)
             {
@@ -196,6 +201,7 @@ export default {
             }
         },
         otherChange() {
+            this.otherPickerFormat = ''
             this.otherPickerType = this.otherDateType
             switch(this.otherDateType)
             {

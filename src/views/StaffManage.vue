@@ -14,10 +14,11 @@ el-table(:data='tableData', max-height='500', align="center", stripe='', style='
   el-table-column(prop='effectiveness', align="center", sortable='', label='工作效率')
   el-table-column(prop='grade', align="center", sortable='', label='参考绩点')
   el-table-column(prop='delay', align="center", sortable='', label='延期占比')
-  el-table-column(label='操作', align="center", width='200px')
+  el-table-column(label='操作', align="center", width='260px')
     template(slot-scope='scope')
-      el-button(size='mini', @click="$router.push({name:'StaffMission', params:{missionName: scope.row.name}})") 查看事务
-      el-button(size='mini', type='danger', @click='handleDelete(scope.$index, scope.row)') 删除
+      el-button(size='mini', type='primary', @click="$router.push({name:'TodayMission', params:{missionName: scope.row.name}})") 查看事务
+      el-button(size='mini', @click="$router.push({name:'StatisticsItem', params:{missionName: scope.row.name}})") 统计数据
+      el-button(size='mini', type='danger', @click="open") 删除
 </template>
 
 <script>
@@ -25,7 +26,7 @@ export default {
     name: 'templete',
     data: () => ({
         tableData: [{
-        id: '1',
+        id: '3',
         account: 'staff001',
         name: '张三',
         sex: '男',
@@ -36,7 +37,7 @@ export default {
         grade: '8',
         delay: '5%'
         }, {
-        id: '2',
+        id: '4',
         account: 'staff002',
         name: '李四',
         sex: '男',
@@ -47,7 +48,7 @@ export default {
         grade: '7.2',
         delay: '10%'
         }, {
-        id: '3',
+        id: '5',
         account: 'staff003',
         name: '王五',
         sex: '女',
@@ -63,7 +64,13 @@ export default {
         filterHandler(value, row, column) {
         const property = column['property']
         return row[property] === value;
-      }
+      },
+        open() {	
+            this.$confirm('确认删除吗？', '', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消'
+            })
+        }
     }
 }
 </script>

@@ -65,57 +65,57 @@ export default {
         todayMissionInfo: [
             {
                 title: '所有事务',
-                value: 1
+                value: 10000
             },
             {
                 title: '进行中',
-                value: 1
+                value: 0
             },
             {
                 title: '未开始',
-                value: 1
+                value: 10000
             },
             {
                 title: '已超时',
-                value: 1
+                value: 0
             },
             {
                 title: '已延期',
-                value: 1
+                value: 0
             },
             {
                 title: '已完成',
-                value: 1
+                value: 0
             },
             {
                 title: '已暂停',
-                value: 1
+                value: 0
             },
             {
                 title: '已取消',
-                value: 1
+                value: 0
             }
         ],
         todayMissionOther: [
             {
                 title: '总工时',
-                value: 1
+                value: 0
             },
             {
                 title: '已用工时',
-                value: 1
+                value: 0
             },
             {
                 title: '剩余工时',
-                value: 1
+                value: 0
             },
             {
                 title: '超时时长',
-                value: 1
+                value: 0
             },
             {
                 title: '延期时长',
-                value: 1
+                value: 0
             }
         ],
         options: [{
@@ -145,6 +145,7 @@ export default {
     }),
     methods: {
         missionChange() {
+            this.missionPickerFormat = ''
             this.missionPickerType = this.missionDateType
             switch(this.missionDateType)
             {
@@ -165,6 +166,7 @@ export default {
             }
         },
         otherChange() {
+            this.otherPickerFormat = ''
             this.otherPickerType = this.otherDateType
             switch(this.otherDateType)
             {

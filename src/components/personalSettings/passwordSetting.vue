@@ -13,11 +13,11 @@
 .sign
     el-form(ref='signForm' :rules="formRules" :model='signForm', label-width='100px')
         el-form-item(label='原密码' prop="password")
-            el-input(v-model='signForm.password')
+            el-input(v-model='signForm.password' show-password)
         el-form-item(label='新密码' prop="newPassword")
-            el-input(v-model='signForm.newPassword')
+            el-input(v-model='signForm.newPassword' show-password)
         el-form-item(label='确认新密码' prop="SecondPassword")
-            el-input(v-model='signForm.SecondPassword')
+            el-input(v-model='signForm.SecondPassword' show-password)
         el-button(type="primary" @click="onSign") 确认
         el-button(type="primary" @click="cancelSubmit") 取消
 </template>

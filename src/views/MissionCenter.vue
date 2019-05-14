@@ -16,7 +16,7 @@
 
 <template lang="pug">
 .missionCenter
-    el-table(:data='tableData', max-height='570', stripe='' style='width: 100%')
+    el-table(:data='tableData', height=570, stripe='' style='width: 100%')
         el-table-column(prop='id', sortable='', align="center", label='ID', width='70px')
         el-table-column(prop='priority', sortable='', align="center", label='优先级', width='110px', 
             :filters="[{text: 'A', value: 'A'}, {text: 'B', value: 'B'}, {text: 'C', value: 'C'}, {text: 'D', value: 'D'}]", :filter-method='filterHandler')
@@ -46,7 +46,7 @@
         .dialog-footer(slot='footer')
             el-button(size='mini', @click='dialogFormVisible = false') 取 消
             el-button(size='mini', type='primary', @click='dialogFormVisible = false') 确 定
-    el-pagination(background='', layout='prev, pager, next', :total='20')
+    el-pagination(background='', layout='prev, pager, next', :total='12500')
 </template>
 
 <script>
@@ -57,21 +57,21 @@ export default {
         tableData: [{
             id: '1',
             priority: 'A',
-            task: '毕业设计',
-            taskClass: '周期事务',
-            statusData: '进行中',
-            expected: '100小时',
-            expend: '80小时',
-            schedule: '80%',
+            task: '测试',
+            taskClass: '活动事务',
+            statusData: '未开始',
+            expected: '2小时',
+            expend: '0小时',
+            schedule: '0%',
             asof: '2019-05-08 00:00',
             success: ''
         }, {
             id: '2',
             priority: 'B',
-            task: '毕业论文',
-            taskClass: '周期事务',
+            task: '测试2',
+            taskClass: '活动事务',
             statusData: '未开始',
-            expected: '50小时',
+            expected: '2小时',
             expend: '0小时',
             schedule: '0%',
             asof: '2019-05-08 00:00',
@@ -79,91 +79,134 @@ export default {
         }, {
             id: '3',
             priority: 'C',
-            task: '看书',
-            taskClass: '周期事务',
-            statusData: '已取消',
+            task: '测试3',
+            taskClass: '活动事务',
+            statusData: '未开始',
+            expected: '2小时',
+            expend: '0小时',
+            schedule: '0%',
+            asof: '2019-05-08 00:00',
+            success: ''
+        }, {
+            id: '5',
+            priority: 'A',
+            task: 'boss',
+            taskClass: '活动事务',
+            statusData: '未开始',
             expected: '5小时',
             expend: '0小时',
             schedule: '0%',
-            asof: '2019-04-10 00:00',
+            asof: '2019-05-09 00:00',
+            success: ''
+            //     id: '1',
+            //     priority: 'A',
+            //     task: '毕业设计',
+            //     taskClass: '周期事务',
+            //     statusData: '进行中',
+            //     expected: '100小时',
+            //     expend: '80小时',
+            //     schedule: '80%',
+            //     asof: '2019-05-08 00:00',
+            //     success: ''
+            // }, {
+            //     id: '2',
+            //     priority: 'B',
+            //     task: '毕业论文',
+            //     taskClass: '周期事务',
+            //     statusData: '未开始',
+            //     expected: '50小时',
+            //     expend: '0小时',
+            //     schedule: '0%',
+            //     asof: '2019-05-08 00:00',
+            //     success: ''
+            // }, {
+            //     id: '3',
+            //     priority: 'C',
+            //     task: '看书',
+            //     taskClass: '固定事务',
+            //     statusData: '已取消',
+            //     expected: '5小时',
+            //     expend: '0小时',
+            //     schedule: '0%',
+            //     asof: '2019-04-10 00:00',
+            //     success: ''
+            // }, {
+            //     id: '4',
+            //     priority: 'D',
+            //     task: '洗衣服',
+            //     taskClass: '活动事务',
+            //     statusData: '已完成',
+            //     expected: '1小时',
+            //     expend: '1小时',
+            //     schedule: '100%',
+            //     asof: '2019-04-30 00:00',
+            //     success: '2019-04-30 16:00'
+            // }, {
+            //     id: '5',
+            //     priority: 'D',
+            //     task: '晒被子',
+            //     taskClass: '活动事务',
+            //     statusData: '已暂停',
+            //     expected: '0.5小时',
+            //     expend: '0.25小时',
+            //     schedule: '50%',
+            //     asof: '2019-04-30 00:00',
+            //     success: ''
+            // }, {
+            //     id: '6',
+            //     priority: 'A',
+            //     task: '看电影',
+            //     taskClass: '固定事务',
+            //     statusData: '已完成',
+            //     expected: '4小时',
+            //     expend: '3.5小时',
+            //     schedule: '100%',
+            //     asof: '2019-04-26 00:00',
+            //     success: '2019-04-26 19:00'
+            }, {
+                id: '7',
+                priority: 'B',
+                task: '玩游戏',
+                taskClass: '活动事务',
+                statusData: '已完成',
+                expected: '2.5小时',
+                expend: '3小时',
+                schedule: '100%',
+                asof: '2019-04-27 00:00',
+                success: '2019-04-27 19:00'
+            }, {
+                id: '8',
+                priority: 'B',
+                task: '打篮球',
+                taskClass: '活动事务',
+                statusData: '已完成',
+                expected: '4小时',
+                expend: '4小时',
+                schedule: '100%',
+                asof: '2019-04-27 00:00',
+                success: '2019-04-27 04:00'
+        }, {
+            id: '9',
+            priority: 'D',
+            task: '做饭',
+            taskClass: '周期事务',
+            statusData: '已取消',
+            expected: '1.5小时',
+            expend: '2小时',
+            schedule: '0%',
+            asof: '2019-04-27 00:00',
             success: ''
         }, {
-            id: '4',
-            priority: 'D',
-            task: '洗衣服',
-            taskClass: '周期事务',
-            statusData: '已完成',
-            expected: '1小时',
-            expend: '1小时',
-            schedule: '100%',
-            asof: '2019-04-30 00:00',
-            success: '2019-04-30 16:00'
-        }, {
-            id: '5',
-            priority: 'D',
-            task: '晒被子',
-            taskClass: '周期事务',
-            statusData: '已暂停',
-            expected: '0.5小时',
-            expend: '0.25小时',
-            schedule: '50%',
-            asof: '2019-04-30 00:00',
-            success: ''
-        }, {
-            id: '6',
-            priority: 'A',
-            task: '看电影',
-            taskClass: '周期事务',
-            statusData: '已完成',
-            expected: '4小时',
-            expend: '3.5小时',
-            schedule: '100%',
-            asof: '2019-04-26 00:00',
-            success: '2019-04-26 19:00'
-        }, {
-            id: '7',
+            id: '10',
             priority: 'B',
-            task: '玩游戏',
+            task: '烤串',
             taskClass: '周期事务',
             statusData: '已完成',
-            expected: '2.5小时',
+            expected: '3小时',
             expend: '3小时',
             schedule: '100%',
-            asof: '2019-04-27 00:00',
-            success: '2019-04-27 19:00'
-        }, {
-            id: '8',
-            priority: 'B',
-            task: '打篮球',
-            taskClass: '周期事务',
-            statusData: '已完成',
-            expected: '4小时',
-            expend: '4小时',
-            schedule: '100%',
-            asof: '2019-04-27 00:00',
-            success: '2019-04-27 04:00'
-        // }, {
-        //     id: '9',
-        //     priority: 'D',
-        //     task: '做饭',
-        //     taskClass: '周期事务',
-        //     statusData: '已取消',
-        //     expected: '1.5小时',
-        //     expend: '2小时',
-        //     schedule: '0%',
-        //     asof: '2019-04-27 00:00',
-        //     success: ''
-        // }, {
-        //     id: '10',
-        //     priority: 'B',
-        //     task: '烤串',
-        //     taskClass: '周期事务',
-        //     statusData: '已完成',
-        //     expected: '3小时',
-        //     expend: '3小时',
-        //     schedule: '100%',
-        //     asof: '2019-04-26 00:00',
-        //     success: '2019-04-26 20:00'
+            asof: '2019-04-26 00:00',
+            success: '2019-04-26 20:00'
         }],
         dialogFormVisible: false,
         form: {
@@ -200,16 +243,28 @@ export default {
             switch(row.statusData){
                 case '未开始':
                     this.form.statusData[2].disabled = true
+                    this.form.statusData[3].disabled = true
                     break
                 case '进行中':
                     this.form.statusData[0].disabled = true
                     break
                 case '已暂停':
                     this.form.statusData[0].disabled = true
+                    this.form.statusData[3].disabled = true
                     break
                 case '已完成':
                     this.form.statusData[0].disabled = true
+                    this.form.statusData[1].disabled = true
+                    this.form.statusData[2].disabled = true
+                    this.form.statusData[3].disabled = true
+                    this.form.statusData[4].disabled = true
                     break
+                default:
+                    this.form.statusData[0].disabled = true
+                    this.form.statusData[1].disabled = true
+                    this.form.statusData[2].disabled = true
+                    this.form.statusData[3].disabled = true
+                    this.form.statusData[4].disabled = true
             }
             this.dialogFormVisible = true
         }

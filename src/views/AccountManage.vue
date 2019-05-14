@@ -47,8 +47,8 @@ export default {
             sex: '男',
             phone: '17806097969',
             email: '1342148984@qq.com',
-            registrationTime: '2019-4-23',
-            loginTime: '2019-4-27',
+            registrationTime: '2019-04-23',
+            loginTime: '2019-04-27',
             count: '40',
             disabledSetting: true
         }, {
@@ -59,8 +59,8 @@ export default {
             sex: '男',
             phone: '17806096666',
             email: '1342146666@qq.com',
-            registrationTime: '2019-4-27',
-            loginTime: '2019-4-27',
+            registrationTime: '2019-04-27',
+            loginTime: '2019-04-27',
             count: '0',
             disabledSetting: true
         }, {
@@ -71,9 +71,9 @@ export default {
             sex: '男',
             phone: '17806097969',
             email: '1342148984@qq.com',
-            registrationTime: '2019-4-27',
-            loginTime: '2019-4-27',
-            count: '10',
+            registrationTime: '2019-04-27',
+            loginTime: '2019-04-27',
+            count: '44',
             disabledSetting: false
         }, {
             id: '4',
@@ -83,9 +83,9 @@ export default {
             sex: '男',
             phone: '17806097970',
             email: '1342148985@qq.com',
-            registrationTime: '2019-4-27',
-            loginTime: '2019-4-27',
-            count: '10',
+            registrationTime: '2019-04-27',
+            loginTime: '2019-04-27',
+            count: '21',
             disabledSetting: false
         }, {
             id: '5',
@@ -95,8 +95,20 @@ export default {
             sex: '女',
             phone: '17806097971',
             email: '1342148986@qq.com',
-            registrationTime: '2019-4-27',
-            loginTime: '2019-4-27',
+            registrationTime: '2019-04-27',
+            loginTime: '2019-04-27',
+            count: '12',
+            disabledSetting: false
+        }, {
+            id: '6',
+            account: 'test',
+            permission: '员工',
+            name: '测试',
+            sex: '男',
+            phone: '17806067979',
+            email: '1341348989@qq.com',
+            registrationTime: '2019-05-07',
+            loginTime: '2019-05-07',
             count: '10',
             disabledSetting: false
         }],

@@ -7,6 +7,14 @@
             text-align center
         .confirmButton
             text-align center
+        .beginTime
+            margin-bottom 5px
+        .endTime
+            margin-bottom 5px
+        .nowStatus
+            margin-bottom 9px
+        .cycleSetting
+            margin-bottom 9px
 </style>
 
 <template lang="pug">
@@ -23,7 +31,7 @@
                     el-option(label='D', value='D')
             el-form-item(label='预计用时', prop='estimated', style='width: 160px;')
                 el-input(v-model='ruleForm.estimated', placeholder='小时')
-            el-form-item(label='开始时间')
+            el-form-item.beginTime(label='开始时间')
                 el-col(:span='11')
                     el-form-item(prop='beginTime1')
                         el-date-picker(type='date', placeholder='选择日期', v-model='ruleForm.beginTime1', style='width: 100%;')
@@ -39,20 +47,23 @@
                 el-col(:span='11')
                     el-form-item(prop='endTime2')
                         el-time-picker(placeholder='选择时间', v-model='ruleForm.endTime2', style='width: 100%;')
-            el-form-item(label='当前状态', prop='status')
+            el-form-item.nowStatus(label='当前状态', prop='status')
                 el-radio-group(v-model='ruleForm.status')
                     el-radio(label='未开始')
                     el-radio(label='进行中')
                     el-radio(label='已暂停')
                     el-radio(label='已完成')
                     el-radio(label='已取消')
-            el-form-item(label='周期执行', prop='cycle')
+            el-form-item.cycleSetting(label='周期执行', prop='cycle')
                 el-radio-group(v-model='ruleForm.cycle')
                     el-radio(label='执行一次')
                     el-radio(label='一天')
                     el-radio(label='一周')
                     el-radio(label='一月')
                     el-radio(label='一年')
+            el-form-item(label='自动完成')
+                el-switch(v-model='ruleForm.delivery')
+                span       （到截止日期后自动完成事务）
             el-form-item(label='事务简介', prop='transaction', style='height: 100%;')
                 el-input(type='textarea', v-model='ruleForm.transaction' :autosize="{ minRows: 2, maxRows: 4 }")
             el-form-item.confirmButton
@@ -83,6 +94,7 @@ export default {
             endTime2: '',
             status: '未开始',
             cycle: '执行一次',
+            delivery: false,
             transaction: ''
         },
         rules: {
@@ -120,6 +132,9 @@ export default {
             }, {
             value: '选项3',
             label: '王五'
+            }, {
+            value: '选项4',
+            label: 'test'
             }],
             value: ''
         }

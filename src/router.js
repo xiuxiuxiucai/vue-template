@@ -23,11 +23,11 @@ const routes = [
   { path: '/Login', component: Login },
   { path: '/index', component: MainPage,
     children: [
-      { path: 'TodayMission', component: TodayMission },
+      { path: 'TodayMission', component: TodayMission, name: 'TodayMission'  },
       { path: 'MissionAlter', component: MissionAlter, name: 'MissionAlter' },
       { path: 'MissionCenter', component: MissionCenter, name: 'MissionCenter'  },
       { path: 'MissionItem', component: MissionItem, name: 'MissionItem' },
-      { path: 'StatisticsItem', component: StatisticsItem },
+      { path: 'StatisticsItem', component: StatisticsItem, name: 'StatisticsItem'  },
       { path: 'MissionChart', component: MissionChart },
       { path: 'PersonalSettings', component: PersonalSettings },
       { path: 'AccountManage', component: AccountManage },

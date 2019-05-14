@@ -29,23 +29,26 @@ export default {
     data: () => ({
         reverse: true,
         activities: [{
-            content: '活动按期开始活动',
-            timestamp: '2018-04-15'
-        }, {
-            content: '通过审核',
-            timestamp: '2018-04-13'
-        }, {
-            content: '创建成功',
-            timestamp: '2018-04-11'
-        }, {
-            content: '创建成功',
-            timestamp: '2018-04-11'
-        }, {
-            content: '创建成功',
-            timestamp: '2018-04-11'
-        }, {
-            content: '创建成功',
-            timestamp: '2018-04-11'
+                content: 'root 操作:创建事务',
+                timestamp: '2018-05-06 14:00'
+            }, {
+                content: 'root 操作:进行中',
+                timestamp: '2018-05-07 18:00'
+            }, {
+                content: 'root 操作:已暂停',
+                timestamp: '2018-05-07 18:30'
+            }, {
+                content: 'root 操作:进行中',
+                timestamp: '2018-05-07 19:00'
+            }, {
+                content: 'root 操作:已完成',
+                timestamp: '2018-05-07 19:30'
+        // }, {
+        //     content: 'test 操作:创建事务',
+        //     timestamp: '2018-05-07 18:59'
+        // }, {
+        //     content: 'test 操作:进行中',
+        //     timestamp: '2018-05-07 19:00'
         }],
         missionName: '事务ID 事务名称'
     }),

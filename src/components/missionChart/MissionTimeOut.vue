@@ -37,7 +37,7 @@ export default {
                 legend: {
                     orient: 'vertical',
                     left: 'left',
-                    data: ['进行中','未开始','已取消','已完成','已暂停']
+                    data: ['按时完成','已超时','已延期']
                 },
                 series : [
                     {
@@ -46,11 +46,9 @@ export default {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data:[
-                            {value:3, name:'进行中'},
-                            {value:10, name:'未开始'},
-                            {value:11, name:'已取消'},
-                            {value:63, name:'已完成'},
-                            {value:5, name:'已暂停'}
+                            {value:2, name:'已延期'},
+                            {value:7, name:'已超时'},
+                            {value:22, name:'按时完成'}
                         ],
                         itemStyle: {
                             emphasis: {
